@@ -1,0 +1,105 @@
+.color_scheme_dark *:not(font) {color: #f3f3f3;}
+.color_scheme_dark a {color: #fff;}
+.xe_content p, .rhymix_content p {margin: 0 0 0px 0;line-height: 170%;}
+.xe_content video, .rhymix_content video {max-width: 360px;}
+.xe_content img, .rhymix_content img {max-width: 420px;}
+.eb-itssa .list-wrap,
+.eb-itssa .view-wrap ,
+.header-wrap .inner {max-width: 900px; margin:0rem 1rem;}
+.inner{width: auto;}
+*, .xe_content, .rhymix_content {font-family: '맑은 고딕','Dotum','굴림'; letter-spacing: 0px; font-size: 1.3rem;}
+.eb-itssa .list-wrap .list-body ul li span.title * { font-size: 1.2rem;}
+.color_scheme_dark .eb-itssa .list-wrap .list-body ul li.item {background-color: #19191c;    border-color: #636363;}
+.eb-itssa .list-wrap .list-body ul li.item.item_thumb .thumbnail {margin-right: 15px;}
+.eb-itssa .list-wrap .list-body ul li.item.item_thumb .thumbnail {margin-right: 5px;min-width: 20px;    max-width: 20px;    flex: none;}
+
+.header-wrap { padding: 0.4rem 0;}
+.header-wrap i {transform: scale(0.7);width: 2.6rem;height: 2.6rem;}
+.header-wrap .logo{ }
+.header-wrap .logo a img{width: 36px;}
+.header-wrap .gnb-wrap {gap: 0px 2px;flex-wrap: wrap;}
+.header-wrap .gnb-wrap a {padding: 0.1rem 0.3rem 0.3rem 0.3rem; line-height: 1.1;}
+.header-wrap>.inner { padding: 0rem 0rem 0rem 4rem; }
+.header-wrap>.inner>.inner{ gap: 1rem;margin-left: 0rem; padding-left: 0rem;padding-right: 0;margin: 0;}
+.header-wrap .gnb-wrap a span{font-size: 1.1rem;}
+.header-wrap .gnb-wrap > div:nth-child(8){display: none;}
+.header-wrap .sign-wrap{margin-right: 0rem;}
+.header-wrap:after{display: none}
+.contents-wrap .inner{margin: 0; padding: 0;}
+.eb-itssa .list-wrap .list-body ul li.item.item_thumb .thumbnail img { width:20px;}
+.eb-itssa .list-wrap .list-body ul li a.module_title {font-size: 1.1rem !important;}
+.eb-itssa .list-wrap .list-body ul li.item {padding: 0.8rem 0.5rem;}
+.eb-itssa .list-wrap .list-body ul li span.writer a font {font-size: 1.1rem;}
+.eb-itssa .list-wrap .list-body ul li span.writer a img {width: 8px;}
+.eb-itssa .list-wrap .list-footer{gap: 0.4rem; padding: 1rem 0rem 0rem 0rem;}
+
+.color_scheme_dark .header-wrap .gnb-wrap a.on {background-color: #636363;}
+
+.color_scheme_dark .comment-wrap .comment-box li.item {border-color: #636363;}
+.color_scheme_dark .eb-itssa .list-wrap .list-body ul li.item.admin {background: #313131;}
+.color_scheme_dark .contents-wrap .xm *, 
+.color_scheme_dark .contents-wrap .xc * {color: #d5d5d5 !important;}
+.color_scheme_dark .eb-itssa .list-wrap .list-body ul li a.module_title {color: #7c8b9b;}
+.color_scheme_dark .eb-itssa .list-wrap .list-header .category-box .item {color: #e3e3e3;}
+.color_scheme_dark .eb-itssa .list-wrap .list-body ul li .cat{color: #e3e3e3;}
+.color_scheme_dark .eb-itssa .list-wrap .list-body ul li.item a.subject:visited {color: #a5a5a5;}
+.color_scheme_dark .view-wrap .view-footer a { background-color: #595959;}
+.color_scheme_dark .comment-wrap .comment-box li.item .meta-wrap .btn-reply {background-color: #595959;color: #fff; }
+.color_scheme_dark .eb-itssa .list-wrap .list-body ul li span.title .comment {background-color: transparent;color: #a79470;min-width: 0.8rem; font-size: 1.1rem !important; font-weight: 400;}
+.color_scheme_dark .eb-itssa .list-wrap .list-body ul li span.title .badge i {filter: contrast(0.3); width: 1.2rem;}
+.header-wrap .lnb-wrap {gap: 0.3rem;}
+.eb-itssa .list-wrap .list-header {margin: 1.0rem 0;}
+.eb-itssa .list-wrap .list-header .title {font-size: 1.6rem; color: #ffffff;}
+.color_scheme_dark .comment-wrap .textup-file,
+.color_scheme_dark .comment-wrap .af-btn, 
+.color_scheme_dark .comment-wrap button[type=submit],
+.color_scheme_dark .comment-wrap .btn_insert{border: 0.1rem solid #4f4f4f;}
+.color_scheme_dark .btn {border-color: #5f5f5f !important;}
+.color_scheme_dark .flex-box .btn-write{border-color: #5f5f5f}
+.color_scheme_dark .eb-itssa i{opacity: 1;}
+.eb-itssa .list-wrap .list-footer .btn-write{display: none;}
+.header-wrap .lnb-wrap a span{font-size: 1.3rem;}
+.contents-wrap {padding: 0.6rem 0 3.2rem;}
+i.pen{ background-size: 1.6rem; width: 2.6rem; height: 2.6rem;}
+.flex-box .btn-write{padding: 0rem 1rem 0rem 0rem;}
+.flex-box .btn-write:hover {    background: #757575;}
+.eb-itssa .list-wrap .list-footer .btn-write i { background-size: 1.6rem;}
+.comment-wrap .comment-box li.item .meta-wrap .num{font-size: 1.3rem;}
+.comment-wrap .comment-box li.item .btn-reply.btn-o-reply{}
+.color_scheme_dark .comment-wrap .comment-box li.item .meta-wrap .meta .user * {    color: #ffffff;}
+.color_scheme_dark .comment-wrap .comment-box li.item { background-color: #222222;}
+.color_scheme_dark .comment-wrap .comment-box li.item.depth { background-color: #1e1e1e;}
+.color_scheme_dark .memo_icon_btn i{filter: none;}
+.color_scheme_dark.cke_auto_dark_mode .xefu-container .xefu-btn i{filter: none;}
+.comment-wrap .comment-box li.item.depth { padding-left: 5rem !important;}
+.comment-wrap .comment-box li.item .meta-wrap {margin-bottom: 0.4rem;}
+.comment-wrap .comment-box li.item .meta-wrap i{transform: scale(0.6);}
+.view-wrap .view-contents {padding: 0rem 2rem;}
+.view-wrap .view-contents .vote-box{}
+.view-wrap .view-footer a {padding: 0.4rem 0.9rem;}
+.app-article-vote .app-article-vote__count{font-size: 1.2rem;}
+.view-wrap .view-contents .vote-box a {border: #a7a7a7 solid 1px;border-radius: 0.7rem;padding: 0.8rem;}
+.view-wrap .view-contents .vote-box a .app-icon{transform: scale(0.8);}
+.color_scheme_dark .eb-itssa .tl-ballon{background: #222222;}
+.color_scheme_dark .eb-itssa .tl-ballon select{ background: #222222;}
+.color_scheme_dark .signature-box{background-color: #313131; padding: 0.4rem 1.2rem; border-radius: 0.7rem; line-height: 1.1;}
+.color_scheme_dark .signature-box *{color: #999999}
+.el-itssa {padding-bottom: 90px;}
+.eb-itssa .list-wrap .list-body ul li .title a{font-size: 1.2rem;}
+.view-wrap .view-contents .ads-in-content,
+.ads-bottom-comments-g,
+.adsbygoogle.ad-top-g{ position: absolute; left: 1rem; bottom: 1rem; transform: scale(0.6); transform-origin: left bottom; overflow: hidden;margin: 0 !important;}
+
+.footer-wrap *{font-size: 1.1rem;}
+.footer-wrap:after{display: none;}
+.footer-wrap .inner{margin: 0rem; padding: 0rem;}
+.footer-wrap .fnb-wrap{justify-content: left;}
+.footer-wrap .copyright-wrap {flex-direction: row;justify-content: left;}
+
+@media (max-width: 769px) {.header-wrap > .inner {    padding: 0rem 0rem 0rem 0rem;}
+    .eb-itssa .list-wrap .list-body ul li.item .title a {font-size: 1.25rem;}
+}
+@media (min-width: 769px) {
+	
+	.header-wrap .sitemapbox{position: absolute; left: 0rem; top: 0rem;}
+}
