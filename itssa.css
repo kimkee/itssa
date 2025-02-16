@@ -97,7 +97,8 @@ i.pen{ background-size: 1.6rem; width: 2.6rem; height: 2.6rem;}
 .eb-itssa .list-wrap .list-body ul li .title a{font-size: 1.3rem;}
 .view-wrap .view-contents .ads-in-content,
 .contents-wrap .inner .ad-bottom-g,
-.contents-wrap .inner .ad-top-g{ position: absolute; left: -100%; bottom: 1rem; transform: scale(0.6); transform-origin: left bottom; overflow: hidden;margin: 0 !important;}
+.contents-wrap .inner .ad-top-g,
+.contents-wrap>.inner .main-side:first-child{ position: absolute; left: -100%; bottom: 1rem; transform: scale(0.6); transform-origin: left bottom; overflow: hidden;margin: 0 !important;}
 
 .footer-wrap *{font-size: 1.1rem;}
 .footer-wrap:after{display: none;}
