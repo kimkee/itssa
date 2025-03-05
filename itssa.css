@@ -113,3 +113,4 @@ i.pen{ background-size: 1.6rem; width: 2.6rem; height: 2.6rem;}
 	
 	.header-wrap .sitemapbox{position: absolute; left: 0rem; top: 0rem;}
 }
+.inner .content-wrap .content-sidebar{display: none;}
