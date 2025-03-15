@@ -107,10 +107,12 @@ i.pen{ background-size: 1.6rem; width: 2.6rem; height: 2.6rem;}
 .footer-wrap .copyright-wrap {flex-direction: row;justify-content: left;}
 
 @media (max-width: 769px) {.header-wrap > .inner {    padding: 0rem 0rem 0rem 0rem;}
-    .eb-itssa .list-wrap .list-body ul li.item .title a {font-size: 1.25rem;}
+    .eb-itssa .list-wrap .list-body ul li.item .title a {font-size: 1.4rem;}
 }
 @media (min-width: 769px) {
 	
 	.header-wrap .sitemapbox{position: absolute; left: 0rem; top: 0rem;}
 }
 .inner .content-wrap .content-sidebar{display: none;}
+
+img[src*='b5d1c53049540f84b4eb8d1b35f5336d.jpg']{display:none;}
