@@ -7,8 +7,8 @@
 .color_scheme_dark a {color: #fff;}
 .xe_content p, .rhymix_content p {margin: 0 0 0px 0;line-height: 170%;}
 .xe_content video, .rhymix_content video {max-width: 360px;}
-.xe_content img, .rhymix_content img {max-width: 420px;}
-.xe_content img.size, .rhymix_content img.size{max-width: 100%;}
+body .xe_content img, .rhymix_content img {max-width: 420px;}
+body .xe_content img.size, .rhymix_content img.size{max-width: 100%;}
 .eb-itssa .list-wrap,
 .eb-itssa .view-wrap ,
 .header-wrap .inner {max-width: 900px; margin:0rem 1rem;}
@@ -62,7 +62,7 @@
 .color_scheme_dark .comment-wrap button[type=submit],
 .color_scheme_dark .comment-wrap .btn_insert{border: 0.1rem solid #4f4f4f;}
 .color_scheme_dark .btn {border-color: #5f5f5f !important;}
-.color_scheme_dark .flex-box .btn-write{border-color: #5f5f5f}
+.color_scheme_dark .flex-box .btn-write{border-color: #5f5f5f;}
 .color_scheme_dark .eb-itssa i{opacity: 1;}
 .eb-itssa .list-wrap .list-footer .btn-write{display: none;}
 .header-wrap .lnb-wrap a span{font-size: 1.3rem;}

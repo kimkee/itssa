@@ -13,3 +13,11 @@ document.querySelectorAll('.list-body .item-info .writer a').forEach(els => {
 		els.closest('li.item').style.display = 'none'; // li.item 숨기기
 	}
 });
+
+
+
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = chrome.runtime.getURL('css/itssa.css');
+(document.head || document.documentElement).appendChild(link);

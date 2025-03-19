@@ -1,0 +1,29 @@
+{
+	"manifest_version": 3,
+	"name": "잇싸",
+    "description":"잇싸, EastSideStory, 동편",
+	"version": "0.0.1",
+	"content_scripts": [
+		{
+			"matches": ["https://itssa.co.kr/*", "http://itssa.co.kr/*"],
+			"js": ["js/itssa.js"]
+		}
+	],
+	"web_accessible_resources":[{
+		"resources":["img/*", "css/*"],
+		"matches": ["https://itssa.co.kr/*", "http://itssa.co.kr/*"]
+	}],
+	"icons": {
+		"256": "img/logo.png"
+	},
+	"action": {
+		"default_title": "My",
+		"default_icon": "img/logo.png",
+		"default_popup": "popup.html"
+	},
+  	"permissions": ["tabs"],
+	"background": {
+		"service_worker": "background.js"
+	}
+	
+}
