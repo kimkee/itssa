@@ -6,7 +6,8 @@
 	"content_scripts": [
 		{
 			"matches": ["https://itssa.co.kr/*", "http://itssa.co.kr/*"],
-			"js": ["js/itssa.js"]
+			"js": ["js/itssa.js"],
+			"css": ["css/itssa.css"]
 		}
 	],
 	"web_accessible_resources":[{
@@ -21,9 +22,9 @@
 		"default_icon": "img/logo.png",
 		"default_popup": "popup.html"
 	},
-  	"permissions": ["tabs"],
+  	"permissions": ["tabs","storage"],
 	"background": {
 		"service_worker": "background.js"
-	}
-	
+	},
+	"options_page": "options.html"
 }
