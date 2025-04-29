@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Extension Options</title>
+<link rel="stylesheet" href="./css/fontawesome.css">
+<link rel="stylesheet" href="./css/all.css">
 <link rel="stylesheet" href="./css/tailwind.css">
 </head>
 <body class="m-4 p-4 bg-white text-gray-900">
@@ -12,7 +14,9 @@
         <input type="checkbox" class="checkbox" id="option1" />
         <span class="text-sm">Enable Feature A</span>
     </label>
-    
+    <span>
+        
+      </span>
     <label class="flex items-center mt-4 gap-2 text-base">
         <input type="checkbox" class="checkbox" id="option2" />
         <span class="text-sm">Enable Feature B</span>
@@ -20,13 +24,13 @@
     
     <div class="flex items-center mt-4 gap-2">
         <button id="save"  class="btn">저장</button>
-        <button id="reset" class="btn btn-success">초기화</button>
+        <button id="reset" class="btn btn-success"><i class="fa-solid fa-gear"></i> 초기화</button>
     </div>
     <div class="flex items-center mt-4 gap-2">
-        <button class="btn btn-lg btn-primary">저장</button>
-        <button class="btn btn-md btn-danger">경고</button>
-        <button class="btn btn-sm btn-info">정보</button>
-        <button class="btn btn-xs btn-warning">도움</button>
+        <button class="btn btn-lg btn-primary"><i class="fa-solid fa-camera"></i> 저장</button>
+        <button class="btn btn-md btn-danger"><i class="fa-solid fa-xmark"></i> 경고</button>
+        <button class="btn btn-sm btn-info"><i class="fa-solid fa-circle-info"></i> 정보</button>
+        <button class="btn btn-xs btn-warning"> <i class="fa-solid fa-circle-question"></i> 도움</button>
     </div>
     <div class="flex items-center mt-4 gap-2">
         <input type="text" class="input" placeholder="입력 하세요" />
