@@ -1,6 +1,4 @@
-document.querySelectorAll('.xe_content img, .rhymix_content img').forEach(img=>{
-    img.addEventListener('click',e => img.classList.toggle('size'))
-})
+
 
 document.querySelectorAll('.list-body .item-info .writer a').forEach(els => {
 	const blockUser = [
@@ -15,25 +13,8 @@ document.querySelectorAll('.list-body .item-info .writer a').forEach(els => {
 });
 
 
-
-const link = document.createElement('link');
-link.rel = 'stylesheet';
-link.type = 'text/css';
-link.href = chrome.runtime.getURL('css/itssa.css');
-(document.head || document.documentElement).appendChild(link);
-
-// 웹페이지와의 데이터 교환을 위해 메시지 리스너 추가
-window.addEventListener('message', (event) => {
-    if (event.data.type === 'GET_STORAGE') {
-        chrome.storage.sync.get(['key'], (result) => {
-            window.postMessage({ type: 'STORAGE_DATA', data: result.key }, '*');
-        });
-    }
-});
-
-
 // 웹페이지에 DOM 이벤트 리스너 추가
-document.addEventListener('click', (event) => {
+/* document.addEventListener('click', (event) => {
     if (event.target && event.target.id === 'saveButton') { // 버튼 ID 확인
 
     }
@@ -47,11 +28,80 @@ document.addEventListener('click', (event) => {
 	chrome.storage.sync.set(dataToSave, () => {
 		console.log('데이터가 저장되었습니다:', dataToSave);
 	});
-});
+}); */
 
 
 
-chrome.storage.sync.get(['popkey'], (result) => {
+/* chrome.storage.sync.get(['popkey'], (result) => {
 	console.log('팝업에서 저장된 데이터:', result.popkey);
 	document.querySelector('.logo').textContent = result.popkey;
-});
+}); */
+
+
+const itssaUI = {
+	init: function() {
+		console.log("initssaUI.init()");
+		this.theme.init();
+		this.blocking.init();
+	},
+	blocking: {
+		init: function() {
+			this.set();
+			this.evt();
+		},
+		evt: function() {
+			const _this = this;
+			document.addEventListener('click', (event) => {
+				const attrHref = event.target.closest('[href="#popup_menu_area"]')?.getAttribute('href');
+				const attrClass = event.target.closest('[href="#popup_menu_area"]')?.getAttribute('class');
+				if (attrHref === "#popup_menu_area") { // 버튼 ID 확인
+					console.log('버튼 클릭됨:', attrHref);
+					setTimeout(() => _this.addHTML(attrClass), 200);
+				} 
+				if (event.target.id === "setBlockUser") {
+					_this.addUser(event.target.className);
+				}
+			})
+		},
+		addHTML: function(cls) {
+			document.getElementById('popup_menu_area').querySelector('ul').insertAdjacentHTML('beforeend', `
+				<li><a href="javascript:;" class="${cls}" id="setBlockUser">유저차단하기</a></li>
+			`);
+
+			console.log('addHTML 호출됨');
+		},
+		addUser: function(cls) {
+			console.log(cls);
+			alert(cls+ '차단할 유저를 추가.');
+		},
+		set: function() {
+			
+			const blockUser = [
+				'member_11567789', // 어그로
+				'member_12345678', // 테스트
+			];
+
+			document.querySelectorAll('.list-body .item-info .writer a').forEach(els => {
+				if (blockUser.some(blockedClass => els.classList.contains(blockedClass))) {
+					els.closest('li.item').style.display = 'none'; // li.item 숨기기
+				}
+			});
+		}
+	},
+	theme: {
+		init: function(){
+			this.set();
+		},
+		set: function() {
+			const bodyCls  = document.body.classList;
+			const themeStat = bodyCls.contains('color_scheme_dark') ? 'dark' : 'light';
+			chrome.storage.sync.set({
+				theme: themeStat
+			}, () => {
+				console.log('테마가 설정되었습니다:', themeStat);
+			});
+		}
+	},
+}
+
+itssaUI.init();

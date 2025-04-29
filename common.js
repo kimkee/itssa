@@ -21,4 +21,18 @@ chrome.action.onClicked.addListener((tab) => {
 }); */
 
 
-console.log("background.js");
+/* document.documentElement.classList.toggle(
+  "dark",
+  localStorage.theme === "dark" ||
+    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+); */
+
+chrome.storage.sync.get(['theme'], (result) => {
+	console.log('저장된 테마:', result);
+	if (result.theme === 'dark') {
+		document.documentElement.classList.add('dark');
+	} else {
+		document.documentElement.classList.remove('dark');
+	}
+	
+});
