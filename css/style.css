@@ -1,0 +1,23 @@
+/* tailwind-custom.css */
+
+/* Tailwind 구성 확장 */
+@config {
+    theme: {
+        extend: {
+            colors: {
+                clifford: "var(--color-clifford)"
+            }
+        }
+    }
+}
+
+/* CSS 변수 정의 */
+@theme {
+--color-clifford: #da373d;
+}
+
+/* 기본 Tailwind 지시어 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  

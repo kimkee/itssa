@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extension Options</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extension Options</title>
+<script src="./tailwindcss.4.1.4.js"></script>
+<link rel="stylesheet" type="text/tailwindcss" href="./css/style.css">
+
 </head>
-<body>
-    <h1>Extension Options</h1>
-    <label>
+<body class="m-4 p-4 bg-white text-gray-900">
+    <h1 class="text-tomato">Extension Options</h1>
+    <label class="text-clifford">
         <input type="checkbox" id="option1" />
         Enable Feature A
     </label>
     <br />
-    <label>
+    <label class="text-clifford">
         <input type="checkbox" id="option2" />
         Enable Feature B
     </label>
     <br />
-    <button id="save">Save</button>
-    <button id="reset">Reset</button>
+    <div class="flex mt-4 gap-2">
+        <button id="save"  class="p-2 px-4 bg-primary text-white rounded hover:bg-blue-700">Save</button>
+        <button id="reset" class="p-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">Reset</button>
+    </div>
 
     <script src="options.js"></script>
 </body>
