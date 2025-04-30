@@ -14,10 +14,12 @@ const setDataList = (data) => {
         <ul class="h-full flex flex-col gap-2">
             ${data.length > 0 ? `
                 ${data.map(item => `
-                <li class="flex items-start justify-start relative p-2 border border-gray-300 dark:border-gray-600 text-sm pr-10">
-					<span class="w-24 font-medium mr-2">${item.name}</span>
-					<span class="memo w-full text-xs">${item.memo}</span>
-					<button type="button" class="w-6 h-6 absolute right-1 top-1.5 data-user-key="${item.key}">
+                <li class="flex items-start justify-start relative p-2 border border-gray-300 dark:border-gray-600 text-xs pr-10">
+					<span class="w-28 font-medium break-all border-r border-gray-300 dark:border-gray-600 p-1 mr-2">${item.name}</span>
+					<span class="memo w-full text-xs">
+                        <input type="text" value="${item.memo}" class="w-full p-1" />
+                    </span>
+					<button type="button" class="w-6 h-6 absolute right-1 top-2 data-user-key="${item.key}">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 				</li>

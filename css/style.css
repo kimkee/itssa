@@ -8,9 +8,8 @@
 ::-webkit-scrollbar-thumb{width: 10px; border-radius:7px; background-color: #00000044;border: solid 3px transparent; background-clip: content-box;}
 ::-webkit-scrollbar-thumb:hover{background-color:#aaaaaa;}
 .dark ::-webkit-scrollbar-thumb:hover{background-color:#00000044;}
-button{
-    @apply border-none outline-none cursor-pointer;
-}
+button{ @apply border-none outline-none cursor-pointer; }
+input[type="text"]{ @apply outline-gray-500; }
 @layer base { 
     .btn{
         @apply flex-shrink-0 rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 inline-flex items-center justify-center shadow-xs ring-1 ring-inset 
@@ -57,7 +56,7 @@ button{
 
 
 body{
-    @apply bg-white text-gray-900 text-base;
+    @apply bg-white text-gray-600 text-base;
 }
 .dark body{
     @apply bg-black/80 text-gray-300;

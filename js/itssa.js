@@ -76,16 +76,25 @@ const itssaUI = {
 			
 			chrome.storage.sync.get(['blockingData'], (result) => {
 				console.log('저장된 데이터:', result.blockingData);
-				blockingData = result.blockingData || [];
+				let blockingData = result.blockingData || [];
 				
+				const memo = prompt('차단 이유를 입력하세요', '차단된 유저입니다.');
+				if (memo === null) {
+					return; // 사용자가 취소를 클릭한 경우
+				}
 				const newBlockingData = {
 					key: cls,
-					name : name,
-					memo : '차단된 유저 메모 메모',
-					timestamp : new Date().toISOString(),
+					name: name,
+					memo: memo,
+					timestamp: new Date().toISOString(),
 				};
+
+				// 기존 데이터에서 같은 key 값을 가진 요소를 제거
+				blockingData = blockingData.filter(item => item.key !== newBlockingData.key);
+
+				// 새로운 데이터를 배열의 맨 앞에 추가
 				blockingData.unshift(newBlockingData);
-				
+
 				chrome.storage.sync.set( {blockingData} , () => {
 					console.log('차단 데이터가 저장되었습니다:', blockingData);
 				});
