@@ -102,17 +102,25 @@ const itssaUI = {
 
 		},
 		set: function() {
-			
-			const blockUser = [
-				'member_11567789', // 어그로
-				'member_12345678', // 테스트
-			];
+			chrome.storage.sync.get(['blockingData'], (result) => {
+				console.log('저장된 데이터:', result.blockingData);
+				const blockingData = result.blockingData || [];
 
-			document.querySelectorAll('.list-body .item-info .writer a').forEach(els => {
-				if (blockUser.some(blockedClass => els.classList.contains(blockedClass))) {
-					els.closest('li.item').style.display = 'none'; // li.item 숨기기
+				if (blockingData.length > 0) {
+					blockingData.forEach(data => {
+						const { key, name, memo } = data;
+						// console.log(key, name, memo);
+						document.querySelectorAll('.list-body .item-info .writer a').forEach(els => {
+							if (els.classList.contains(key)) {
+								// els.closest('li.item').style.display = 'none'; // li.item 숨기기
+								els.closest('li.item').style.opacity = '0.1'; // li.item 숨기기
+							}
+						});
+						
+					});
 				}
 			});
+			
 		}
 	},
 	theme: {

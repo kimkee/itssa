@@ -11,37 +11,34 @@
 </head>
 
 <body class="w-120 h-140 p-4 bg-white text-gray-900">
-	<div class="wrap h-full flex flex-col w-full">
-		<div class="flex justify-between flex-row w-full mb-4">
-			<h1 class=""><i class="fa-solid fa-user-tie"></i> <span class="font-bold dark:text-white">차단유저 리스트</span></h1>
-			<div class="">
-				<input type="checkbox" class="checkbox" />
-				<!-- <a href="options.html" target="_self"><i class="fa-solid fa-gear"></i></a> -->
-				<!-- <button type="button"><i class="fa-solid fa-floppy-disk"></i></button> -->
-			</div>
-		</div>
-		<div class="overflow-y-auto h-full ">
-			<!-- 차단유저 리스트가 여기에 동적으로 추가됩니다. -->
-			<ul class="h-full" id="blockingUserList">
-				<li class="flex items-start justify-start relative p-2 border-b border-gray-300 dark:border-gray-600 text-sm pr-10">
-					<span class="w-24 font-medium mr-2">차단유저1</span>
-					<span class="memo w-full text-xs">매일 매일 도배질 하는 도배꾼.</span>
-					<button type="button" class="w-6 h-6 absolute right-1 top-1 z-10" data-user-id="user1"><i class="fa-solid fa-xmark"></i></button>
-				</li>
-				
-			</ul>
+    <div class="wrap h-full flex flex-col w-full">
+        <div class="flex justify-between flex-row w-full mb-4">
+            <h1 class=""><i class="fa-solid fa-user-tie"></i> <span class="font-bold dark:text-white">차단유저 리스트</span></h1>
+            <div class="">
+                <input type="checkbox" class="tog-checkbox" id="togBlocking" />
+                <!-- <a href="options.html" target="_self"><i class="fa-solid fa-gear"></i></a> -->
+                <!-- <button type="button"><i class="fa-solid fa-floppy-disk"></i></button> -->
+            </div>
+        </div>
+        <div class="overflow-y-auto h-full relative">
+            <div class="hidden absolute top-0 left-0 w-full h-full bg-white dark:bg-black/0 opacity-70 z-10" id="blocklistScreen"></div>
+            <!-- 차단유저 리스트가 여기에 동적으로 추가됩니다. -->
+            <ul class="h-full flex flex-col gap-2" id="blockingUserList"></ul>
 
-		</div>
-		<!-- <div>
-			<div class="flex items-center mt-4 gap-2">
-				<button class="btn btn-lg btn-primary"><i class="fa-solid fa-camera"></i> 저장</button>
-				<button class="btn btn-md btn-danger"><i class="fa-solid fa-xmark"></i> 경고</button>
-				<button class="btn btn-sm btn-info"><i class="fa-solid fa-circle-info"></i> 정보</button>
-				<button class="btn btn-xs btn-warning"> <i class="fa-solid fa-circle-question"></i> 도움</button>
-			</div>
-		</div> -->
-	</div>
-	
+        </div>
+        <div>
+            <div class="flex justify-between items-center mt-4 gap-2">
+                <div>
+
+                </div>
+                <div>
+                    <button class="btn btn-sm"><i class="fa-solid fa-floppy-disk"></i> 리스트 백업</button>
+                    <button class="btn btn-sm"><i class="fa-solid fa-retweet"></i> 리스트 복원</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- <div class="flex items-center mt-4 gap-2">
         <button class="btn btn-lg btn-primary"><i class="fa-solid fa-camera"></i> 저장</button>
         <button class="btn btn-md btn-danger"><i class="fa-solid fa-xmark"></i> 경고</button>
@@ -63,8 +60,8 @@
             <option value="2">02</option>
         </select>
     </div> -->
-	<script src="common.js"></script>
-	<script src="popup.js"></script>
+    <script src="common.js"></script>
+    <script src="popup.js"></script>
 </body>
 
 </html>

@@ -1,17 +1,30 @@
 
-chrome.storage.sync.get(['theme','blockingData'], (result) => {
+chrome.storage.sync.get(['theme','blockingData','blockingEnabled'], (result) => {
     console.log('팝업에서 저장된 데이터:', result.theme);
     blockingData = result.blockingData || [];
 
     console.log('차단 데이터:', blockingData);
     setDataList(blockingData);
     // setDataList([]);
+
+    isBlockingEnabled = result.blockingEnabled || true;
+    document.getElementById('togBlocking').checked = isBlockingEnabled;
+    setBlockingEnabled(isBlockingEnabled);
 });
 
+setBlockingEnabled = (isBlockingEnabled) => {
+    if(isBlockingEnabled){
+        document.getElementById('blocklistScreen').classList.remove('!block');
+        document.getElementById('blockingUserList').classList.remove('opacity-50');
+    }else{
+        document.getElementById('blocklistScreen').classList.add('!block');
+        document.getElementById('blockingUserList').classList.add('opacity-50');
+    }
+}
 
 const setDataList = (data) => {
     const DATALIST = `
-        <ul class="h-full flex flex-col gap-2">
+        
             ${data.length > 0 ? `
                 ${data.map(item => `
                 <li class="flex items-start justify-start relative p-2 border border-gray-300 dark:border-gray-600 text-xs pr-10">
@@ -28,7 +41,7 @@ const setDataList = (data) => {
                 <i class="fa-solid fa-magnifying-glass text-2xl"></i> <p class="text-sm">차단 하신 유저가 없습니다.</p>
             </li>
             `}
-        </ul>
+        
     `;
     document.getElementById('blockingUserList').innerHTML = DATALIST; // 새 데이터 추가
 };
@@ -47,6 +60,21 @@ document.addEventListener('click', (event) => {
         });
     }
 })
+
+document.getElementById('togBlocking').addEventListener('change', () => {
+    const isChecked = document.getElementById('togBlocking').checked;
+
+    const dataToSave = {
+        blockingEnabled: isChecked
+    };
+
+    // chrome.storage.sync에 데이터 저장
+    chrome.storage.sync.set(dataToSave, () => {
+        console.log('토글 블록리스트', dataToSave);
+    });
+
+    setBlockingEnabled(isChecked);
+});
 
 
 
