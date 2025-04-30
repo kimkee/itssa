@@ -19,7 +19,7 @@ const setDataList = (data) => {
 					<span class="memo w-full text-xs">
                         <input type="text" value="${item.memo}" class="w-full p-1" />
                     </span>
-					<button type="button" class="w-6 h-6 absolute right-1 top-2 data-user-key="${item.key}">
+					<button type="button" class="bt-del w-6 h-6 absolute right-1 top-2" data-key="${item.key}">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 				</li>
@@ -32,6 +32,21 @@ const setDataList = (data) => {
     `;
     document.getElementById('blockingUserList').innerHTML = DATALIST; // 새 데이터 추가
 };
+
+
+document.addEventListener('click', (event) => {
+    const btDel = event.target.closest(".bt-del");
+    if(btDel){
+        const key = btDel.getAttribute("data-key");
+        console.log(key);
+        // 삭제할 데이터의 key 값을 사용하여 해당 데이터를 삭제
+        blockingData = blockingData.filter(item => item.key !== key);
+        setDataList(blockingData); // 새 데이터 추가
+        chrome.storage.sync.set({ blockingData }, () => {
+            console.log('차단 데이터가 저장되었습니다:', blockingData);
+        });
+    }
+})
 
 
 

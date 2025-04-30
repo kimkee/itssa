@@ -11,8 +11,15 @@
 </head>
 
 <body class="w-120 h-140 p-4 bg-white text-gray-900">
-	<div class="wrap h-full flex flex-col justify-between">
-		<h1 class="mb-3"><i class="fa-solid fa-user-tie"></i> <span class="font-bold dark:text-white">차단유저 리스트</span></h1>
+	<div class="wrap h-full flex flex-col w-full">
+		<div class="flex justify-between flex-row w-full mb-4">
+			<h1 class=""><i class="fa-solid fa-user-tie"></i> <span class="font-bold dark:text-white">차단유저 리스트</span></h1>
+			<div class="">
+				<input type="checkbox" class="checkbox" />
+				<!-- <a href="options.html" target="_self"><i class="fa-solid fa-gear"></i></a> -->
+				<!-- <button type="button"><i class="fa-solid fa-floppy-disk"></i></button> -->
+			</div>
+		</div>
 		<div class="overflow-y-auto h-full ">
 			<!-- 차단유저 리스트가 여기에 동적으로 추가됩니다. -->
 			<ul class="h-full" id="blockingUserList">
@@ -25,6 +32,14 @@
 			</ul>
 
 		</div>
+		<!-- <div>
+			<div class="flex items-center mt-4 gap-2">
+				<button class="btn btn-lg btn-primary"><i class="fa-solid fa-camera"></i> 저장</button>
+				<button class="btn btn-md btn-danger"><i class="fa-solid fa-xmark"></i> 경고</button>
+				<button class="btn btn-sm btn-info"><i class="fa-solid fa-circle-info"></i> 정보</button>
+				<button class="btn btn-xs btn-warning"> <i class="fa-solid fa-circle-question"></i> 도움</button>
+			</div>
+		</div> -->
 	</div>
 	
     <!-- <div class="flex items-center mt-4 gap-2">
