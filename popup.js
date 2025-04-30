@@ -1,31 +1,39 @@
 
+chrome.storage.sync.get(['theme','blockingData'], (result) => {
+    console.log('팝업에서 저장된 데이터:', result.theme);
+    blockingData = result.blockingData || [];
 
-
-
-
-function reddenPage() {
-    document.body.style.backgroundColor = 'red';
-}
-
-// 브라우저 액션(톱니바퀴 모양) 클릭 이벤트 리스너 추가
-chrome.action.onClicked.addListener((tab) => {
-    // 클릭 이벤트가 발생한 탭의 URL이 chrome://로 시작하지 않으면
-    if (!tab.url.includes("chrome://")) {
-        // chrome.scripting API를 사용하여 스크립트를 탭에 주입
-        chrome.scripting.executeScript({
-            // 스크립트를 주입할 탭의 ID
-            target: { tabId: tab.id },
-            // 주입할 스크립트 (reddenPage 함수)
-            function: reddenPage
-        });
-    }
+    console.log('차단 데이터:', blockingData);
+    setDataList(blockingData);
+    // setDataList([]);
 });
 
-console.log("script.js");
+
+const setDataList = (data) => {
+    const DATALIST = `
+        <ul class="h-full flex flex-col gap-2">
+            ${data.length > 0 ? `
+                ${data.map(item => `
+                <li class="flex items-start justify-start relative p-2 border border-gray-300 dark:border-gray-600 text-sm pr-10">
+					<span class="w-24 font-medium mr-2">${item.name}</span>
+					<span class="memo w-full text-xs">${item.memo}</span>
+					<button type="button" class="w-6 h-6 absolute right-1 top-1.5 data-user-key="${item.key}">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+				</li>
+            `).join('')}` : `
+            <li class="text-center h-full flex justify-center flex-col gap-5 items-center py-20">
+                <i class="fa-solid fa-magnifying-glass text-2xl"></i> <p class="text-sm">차단 하신 유저가 없습니다.</p>
+            </li>
+            `}
+        </ul>
+    `;
+    document.getElementById('blockingUserList').innerHTML = DATALIST; // 새 데이터 추가
+};
 
 
 
-// 웹페이지에 DOM 이벤트 리스너 추가
+/* // 웹페이지에 DOM 이벤트 리스너 추가
 document.addEventListener('click', (event) => {
     if (event.target && event.target.id === 'saveButton') { // 버튼 ID 확인
 
@@ -47,4 +55,4 @@ document.addEventListener('click', (event) => {
 chrome.storage.sync.get(['popkey'], (result) => {
     console.log('팝업에서 저장된 데이터:', result.popkey);
     document.getElementById('popdata').textContent = result.popkey;
-});
+}); */

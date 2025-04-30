@@ -54,25 +54,43 @@ const itssaUI = {
 			document.addEventListener('click', (event) => {
 				const attrHref = event.target.closest('[href="#popup_menu_area"]')?.getAttribute('href');
 				const attrClass = event.target.closest('[href="#popup_menu_area"]')?.getAttribute('class');
+				const attrName = event.target.closest('[href="#popup_menu_area"]')?.innerText;
 				if (attrHref === "#popup_menu_area") { // 버튼 ID 확인
 					console.log('버튼 클릭됨:', attrHref);
-					setTimeout(() => _this.addHTML(attrClass), 200);
+					setTimeout(() => _this.addHTML(attrClass, attrName), 200);
 				} 
 				if (event.target.id === "setBlockUser") {
-					_this.addUser(event.target.className);
+					_this.addUser(event.target.className , event.target.dataset.name);
 				}
 			})
 		},
-		addHTML: function(cls) {
+		addHTML: function(cls , name) {
 			document.getElementById('popup_menu_area').querySelector('ul').insertAdjacentHTML('beforeend', `
-				<li><a href="javascript:;" class="${cls}" id="setBlockUser">유저차단하기</a></li>
+				<li><a href="javascript:;" class="${cls}" data-key=${cls} data-name="${name}" id="setBlockUser">유저가리기</a></li>
 			`);
 
 			console.log('addHTML 호출됨');
 		},
-		addUser: function(cls) {
-			console.log(cls);
-			alert(cls+ '차단할 유저를 추가.');
+		addUser: function(cls, name) {
+			console.log(cls , name);
+			
+			chrome.storage.sync.get(['blockingData'], (result) => {
+				console.log('저장된 데이터:', result.blockingData);
+				blockingData = result.blockingData || [];
+				
+				const newBlockingData = {
+					key: cls,
+					name : name,
+					memo : '차단된 유저 메모 메모',
+					timestamp : new Date().toISOString(),
+				};
+				blockingData.unshift(newBlockingData);
+				
+				chrome.storage.sync.set( {blockingData} , () => {
+					console.log('차단 데이터가 저장되었습니다:', blockingData);
+				});
+			});
+
 		},
 		set: function() {
 			

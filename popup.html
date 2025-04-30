@@ -10,13 +10,24 @@
 <link rel="stylesheet" href="./css/tailwind.css">
 </head>
 
-<body class="w-120 h-100 p-4 bg-white text-gray-900">
-	<div class="wrap">
-		<h1 class=" text-clifford">잇싸 옵션</h1>
-		<div id="popdata"></div>
-		<button type="button" class="btn" id="saveButton">Save</button>
+<body class="w-120 h-140 p-4 bg-white text-gray-900">
+	<div class="wrap h-full flex flex-col justify-between">
+		<h1 class="mb-2"><i class="fa-solid fa-user-tie"></i> <span class="font-bold dark:text-white">차단유저 리스트</span></h1>
+		<div class="overflow-y-auto h-full ">
+			<!-- 차단유저 리스트가 여기에 동적으로 추가됩니다. -->
+			<ul class="h-full" id="blockingUserList">
+				<li class="flex items-start justify-start relative p-2 border-b border-gray-300 dark:border-gray-600 text-sm pr-10">
+					<span class="w-24 font-medium mr-2">차단유저1</span>
+					<span class="memo w-full text-xs">매일 매일 도배질 하는 도배꾼.</span>
+					<button type="button" class="w-6 h-6 absolute right-1 top-1 z-10" data-user-id="user1"><i class="fa-solid fa-xmark"></i></button>
+				</li>
+				
+			</ul>
+
+		</div>
 	</div>
-    <div class="flex items-center mt-4 gap-2">
+	
+    <!-- <div class="flex items-center mt-4 gap-2">
         <button class="btn btn-lg btn-primary"><i class="fa-solid fa-camera"></i> 저장</button>
         <button class="btn btn-md btn-danger"><i class="fa-solid fa-xmark"></i> 경고</button>
         <button class="btn btn-sm btn-info"><i class="fa-solid fa-circle-info"></i> 정보</button>
@@ -36,7 +47,7 @@
             <option value="1">01</option>
             <option value="2">02</option>
         </select>
-    </div>
+    </div> -->
 	<script src="common.js"></script>
 	<script src="popup.js"></script>
 </body>
