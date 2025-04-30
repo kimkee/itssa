@@ -228,11 +228,17 @@
   .\!block {
     display: block !important;
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
   }
   .hidden {
     display: none;
+  }
+  .table {
+    display: table;
   }
   .h-6 {
     height: calc(var(--spacing) * 6);
@@ -254,6 +260,15 @@
   }
   .w-full {
     width: 100%;
+  }
+  .flex-shrink {
+    flex-shrink: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -347,11 +362,21 @@
   .text-gray-900 {
     color: var(--color-gray-900);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .opacity-40 {
+    opacity: 40%;
+  }
   .opacity-50 {
     opacity: 50%;
   }
   .opacity-70 {
     opacity: 70%;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .dark\:border-gray-600 {
     &:where(.dark, .dark *) {
@@ -747,6 +772,11 @@ input[type="text"] {
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -812,11 +842,6 @@ input[type="text"] {
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -850,6 +875,7 @@ input[type="text"] {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;
@@ -864,7 +890,6 @@ input[type="text"] {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
       --tw-content: "";

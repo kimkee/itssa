@@ -65,7 +65,7 @@ const itssaUI = {
 			})
 		},
 		addHTML: function(cls , name) {
-			document.getElementById('popup_menu_area').querySelector('ul').insertAdjacentHTML('beforeend', `
+			document.getElementById('popup_menu_area').querySelector('ul').insertAdjacentHTML('afterbegin', `
 				<li><a href="javascript:;" class="${cls}" data-key=${cls} data-name="${name}" id="setBlockUser">유저가리기</a></li>
 			`);
 

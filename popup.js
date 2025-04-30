@@ -32,7 +32,7 @@ const setDataList = (data) => {
 					<span class="memo w-full text-xs">
                         <input type="text" value="${item.memo}" class="w-full p-1" />
                     </span>
-					<button type="button" class="bt-del w-6 h-6 absolute right-1 top-2" data-key="${item.key}">
+					<button type="button" class="bt-del w-6 h-6 absolute right-1 top-2" data-key="${item.key}" data-name="${item.name}">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 				</li>
@@ -51,11 +51,16 @@ document.addEventListener('click', (event) => {
     const btDel = event.target.closest(".bt-del");
     if(btDel){
         const key = btDel.getAttribute("data-key");
+        const name = btDel.getAttribute("data-name");
         console.log(key);
+        if (!confirm(`"${name}"님을 차단 목록에서 삭제하시겠습니까?`)) {
+            return; // 사용자가 취소를 클릭한 경우
+        }
         // 삭제할 데이터의 key 값을 사용하여 해당 데이터를 삭제
         blockingData = blockingData.filter(item => item.key !== key);
         setDataList(blockingData); // 새 데이터 추가
         chrome.storage.sync.set({ blockingData }, () => {
+            
             console.log('차단 데이터가 저장되었습니다:', blockingData);
         });
     }
