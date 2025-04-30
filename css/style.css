@@ -70,7 +70,7 @@ input[type="text"]{ @apply outline-gray-500; }
     &:checked::before{ @apply content-['ON'] left-1.5 text-white;}
     &:checked { @apply bg-blue-500 border border-blue-500 ; }
     &::after{
-        @apply content-[''] inline-block w-5 h-5 rounded-full bg-white shadow translate-x-0.5 transform transition-transform duration-200 ease-in-out;
+        @apply content-[''] inline-block w-5 h-5 rounded-full bg-white shadow translate-x-0.5 ;
     }
     &:checked::after { @apply translate-x-7 bg-white; }
 }

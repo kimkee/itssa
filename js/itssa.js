@@ -97,22 +97,24 @@ const itssaUI = {
 
 				chrome.storage.sync.set( {blockingData} , () => {
 					console.log('차단 데이터가 저장되었습니다:', blockingData);
+					location.reload(); // 페이지 새로고침
 				});
 			});
 
 		},
 		set: function() {
-			chrome.storage.sync.get(['blockingData'], (result) => {
+			chrome.storage.sync.get(['blockingData','blockingEnabled'], (result) => {
 				console.log('저장된 데이터:', result.blockingData);
 				const blockingData = result.blockingData || [];
-
-				if (blockingData.length > 0) {
+				const blockingEnabled = result.blockingEnabled ;
+				console.log(blockingEnabled);
+				if (blockingEnabled && blockingData.length > 0) {
 					blockingData.forEach(data => {
 						const { key, name, memo } = data;
 						// console.log(key, name, memo);
 						document.querySelectorAll('.list-body .item-info .writer a').forEach(els => {
 							if (els.classList.contains(key)) {
-								// els.closest('li.item').style.display = 'none'; // li.item 숨기기
+								els.closest('li.item').style.display = 'none'; // li.item 숨기기
 								els.closest('li.item').style.opacity = '0.1'; // li.item 숨기기
 							}
 						});

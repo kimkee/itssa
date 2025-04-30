@@ -6,13 +6,13 @@ chrome.storage.sync.get(['theme','blockingData','blockingEnabled'], (result) => 
     console.log('차단 데이터:', blockingData);
     setDataList(blockingData);
     // setDataList([]);
-
-    isBlockingEnabled = result.blockingEnabled || true;
+    console.log(result.blockingEnabled);
+    const isBlockingEnabled = result.blockingEnabled ;
     document.getElementById('togBlocking').checked = isBlockingEnabled;
     setBlockingEnabled(isBlockingEnabled);
 });
 
-setBlockingEnabled = (isBlockingEnabled) => {
+const setBlockingEnabled = (isBlockingEnabled) => {
     if(isBlockingEnabled){
         document.getElementById('blocklistScreen').classList.remove('!block');
         document.getElementById('blockingUserList').classList.remove('opacity-50');
@@ -71,9 +71,9 @@ document.getElementById('togBlocking').addEventListener('change', () => {
     // chrome.storage.sync에 데이터 저장
     chrome.storage.sync.set(dataToSave, () => {
         console.log('토글 블록리스트', dataToSave);
+        setBlockingEnabled(isChecked);
     });
 
-    setBlockingEnabled(isChecked);
 });
 
 
