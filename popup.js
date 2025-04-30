@@ -77,6 +77,61 @@ document.getElementById('togBlocking').addEventListener('change', () => {
 });
 
 
+document.getElementById('btnBackup').addEventListener('click', () => {
+    chrome.storage.sync.get(null, (items)=> {
+        const dataToBackup = JSON.stringify(items, null, 2); // JSON 형식으로 변환
+        const blob = new Blob([dataToBackup], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+
+        // 현재 날짜/시간 YYYYMMDD_HHMMSS 형식으로 가져오기
+        const now = new Date();
+        const timestamp = now.getFullYear().toString()
+            + String(now.getMonth() + 1).padStart(2, '0')
+            + String(now.getDate()).padStart(2, '0') + '_'
+            + String(now.getHours()).padStart(2, '0')
+            + String(now.getMinutes()).padStart(2, '0')
+            + String(now.getSeconds()).padStart(2, '0');
+        const filename = `backup_${timestamp}.json`; // 파일 이름 생성
+
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename; // 다운로드할 파일 이름
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url); // URL 해제
+        console.log('백업 완료:', dataToBackup);
+    })
+});
+
+// 복원
+document.getElementById('btnRestore').addEventListener('click', () => {
+    document.getElementById('fileInput').click(); // 파일 선택 대화상자 열기
+});
+
+document.getElementById('fileInput').addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const data = JSON.parse(e.target.result);
+                chrome.storage.sync.set(data, () => {
+                    console.log('복원 완료:', data);
+                    alert('복원이 완료되었습니다.');
+                });
+            } catch (error) {
+                console.error('JSON 파싱 오류:', error);
+                alert('유효하지 않은 JSON 파일입니다.');
+            }
+        };
+        reader.readAsText(file);
+    }
+    event.target.value = ''; // 파일 선택 후 input 초기화
+    location.reload(); // 페이지 새로고침
+});
+
 
 /* // 웹페이지에 DOM 이벤트 리스너 추가
 document.addEventListener('click', (event) => {
