@@ -78,7 +78,7 @@ const itssaUI = {
 				console.log('저장된 데이터:', result.blockingData);
 				let blockingData = result.blockingData || [];
 				
-				const memo = prompt(name+'님의 글을 차단 합니다', '차단된 유저입니다.');
+				const memo = prompt(name+'님의 글을 차단 합니다', '차단 사유를 메모하세요.');
 				if (memo === null) {
 					return; // 사용자가 취소를 클릭한 경우
 				}
