@@ -7,7 +7,7 @@ chrome.storage.sync.get(['theme','blockingData','blockingEnabled'], (result) => 
     setDataList(blockingData);
     // setDataList([]);
     console.log(result.blockingEnabled);
-    const isBlockingEnabled = result.blockingEnabled ;
+    const isBlockingEnabled = result.blockingEnabled === undefined ? true : result.blockingEnabled;
     document.getElementById('togBlocking').checked = isBlockingEnabled;
     setBlockingEnabled(isBlockingEnabled);
 });
@@ -25,27 +25,48 @@ const setBlockingEnabled = (isBlockingEnabled) => {
 const setDataList = (data) => {
     const DATALIST = `
         
-            ${data.length > 0 ? `
-                ${data.map(item => `
-                <li class="flex items-start justify-start relative p-2 border border-gray-300 dark:border-gray-600 text-xs pr-10">
-					<span class="w-28 font-medium break-all border-r border-gray-300 dark:border-gray-600 p-1 mr-2">${item.name}</span>
-					<span class="memo w-full text-xs">
-                        <input type="text" value="${item.memo}" class="w-full p-1" />
-                    </span>
-					<button type="button" class="bt-del w-6 h-6 absolute right-1 top-2" data-key="${item.key}" data-name="${item.name}">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-				</li>
-            `).join('')}` : `
+        ${data.length > 0 ? `
+            ${data.map(item => `
+            <li class="flex items-start justify-start relative p-2 border border-gray-300 dark:border-gray-600 text-xs pr-10">
+                <span class="w-28 font-medium break-all border-r border-gray-300 dark:border-gray-600 p-1 mr-2">${item.name}</span>
+                <span class="memo w-full text-xs">
+                    <input type="text" value="${item.memo}" data-key="${item.key}" class="memo-val w-full p-1" />
+                </span>
+                <button type="button" class="bt-del w-6 h-6 absolute right-1 top-2" data-key="${item.key}" data-name="${item.name}">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </li>
+        `).join('')}` : `
             <li class="text-center h-full flex justify-center flex-col gap-5 items-center py-20">
                 <i class="fa-solid fa-magnifying-glass text-2xl"></i> <p class="text-sm">차단 하신 유저가 없습니다.</p>
             </li>
-            `}
+        `}
         
     `;
     document.getElementById('blockingUserList').innerHTML = DATALIST; // 새 데이터 추가
 };
 
+
+document.addEventListener('focusout', (event) => memoUpdate(event));
+document.addEventListener('keypress', (event) => event.key === 'Enter' ?  memoUpdate(event) : null);
+const memoUpdate = (event) => {
+    const inputVal = event.target.closest(".memo-val");
+    if(!inputVal) return;
+    const key = inputVal.getAttribute('data-key');
+    const newMemo = inputVal.value;
+    console.log(key, newMemo);
+
+    // Update the memo in blockingData
+    const itemToUpdate = blockingData.find(item => item.key === key);
+    if (itemToUpdate) {
+        itemToUpdate.memo = newMemo;
+    }
+
+    // Save updated data to chrome.storage.sync
+    chrome.storage.sync.set({ blockingData }, () => {
+        console.log('차단 데이터가 업데이트되었습니다:', blockingData);
+    });
+};
 
 document.addEventListener('click', (event) => {
     const btDel = event.target.closest(".bt-del");

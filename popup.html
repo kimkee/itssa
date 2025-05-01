@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/fontawesome.css">
-<link rel="stylesheet" href="./css/all.css">
+<title>ITSSA Popup</title>
+<link rel="stylesheet" href="./css/fontawesome.min.css">
+<link rel="stylesheet" href="./css/all.min.css">
 <link rel="stylesheet" href="./css/tailwind.css">
 </head>
-
 <body class="w-120 h-140 p-4 bg-white text-gray-900">
     <div class="wrap h-full flex flex-col w-full">
         <div class="flex justify-between flex-row w-full mb-4">
-            <h1 class=""><i class="fa-solid fa-user-tie"></i> <span class="font-bold dark:text-white">차단유저 리스트</span></h1>
+            <h1 class=""><i class="fa-solid fa-user-tie"></i> <span class="font-bold dark:text-white">차단된 유저 리스트</span></h1>
             <div class="">
                 <input type="checkbox" class="tog-checkbox" id="togBlocking" />
                 <!-- <a href="options.html" target="_self"><i class="fa-solid fa-gear"></i></a> -->
@@ -29,7 +28,7 @@
         <div>
             <div class="flex justify-between items-center mt-4 gap-2">
                 <div>
-
+                    <a class="text-lg" href="./options.html" target="_blank" title="기능설명 바로가기"><i class="fa-solid fa-circle-question"></i></a>
                 </div>
                 <div>
                     <button class="btn btn-sm" id="btnBackup"><i class="fa-solid fa-floppy-disk"></i> 백업</button>

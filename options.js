@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
     const option1 = document.getElementById('option1');
     const option2 = document.getElementById('option2');
     const saveButton = document.getElementById('save');
@@ -31,3 +31,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+ */
