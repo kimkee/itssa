@@ -28,8 +28,8 @@ const setDataList = (data) => {
         ${data.length > 0 ? `
             ${data.map(item => `
             <li class="flex items-start justify-start relative p-2 border border-gray-300 dark:border-gray-600 text-xs pr-10">
-                <span class="w-28 font-medium break-all border-r border-gray-300 dark:border-gray-600 p-1 mr-2">${item.name}</span>
-                <span class="memo w-full text-xs">
+                <span class="w-28 flex-none font-medium break-all border-r border-gray-300 dark:border-gray-600 p-1 mr-2">${item.name}</span>
+                <span class="memo flex-none w-full text-xs">
                     <input type="text" value="${item.memo}" data-key="${item.key}" class="memo-val w-full p-1" />
                 </span>
                 <button type="button" class="bt-del w-6 h-6 absolute right-1 top-2" data-key="${item.key}" data-name="${item.name}">
@@ -117,7 +117,7 @@ document.getElementById('btnBackup').addEventListener('click', () => {
             + String(now.getHours()).padStart(2, '0')
             + String(now.getMinutes()).padStart(2, '0')
             + String(now.getSeconds()).padStart(2, '0');
-        const filename = `backup_${timestamp}.json`; // 파일 이름 생성
+        const filename = `backup_ittsa_${timestamp}.json`; // 파일 이름 생성
 
 
         const a = document.createElement('a');
