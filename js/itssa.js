@@ -108,6 +108,11 @@ const itssaUI = {
 				console.log('저장된 데이터:', result.blockingData);
 				const blockingData = result.blockingData || [];
 				const blockingEnabled = result.blockingEnabled ;
+				if(blockingEnabled === undefined) {
+					chrome.storage.sync.set({ blockingEnabled: true }, () => {
+						console.log('차단 기능이 활성화되었습니다.');
+					});
+				}
 				console.log(blockingEnabled);
 				if (blockingEnabled && blockingData.length > 0) {
 					blockingData.forEach(data => {
