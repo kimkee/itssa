@@ -75,9 +75,15 @@ const itssaUI = {
 		addUser: function(cls, name) {
 			console.log(cls , name);
 			
-			chrome.storage.sync.get(['blockingData'], (result) => {
+			chrome.storage.sync.get('blockingData', (result) => {
+                if (chrome.runtime.lastError) {
+                    console.warn("storage 접근 실패:", chrome.runtime.lastError.message);
+                    return;
+                }
+				
 				console.log('저장된 데이터:', result.blockingData);
-				let blockingData = result.blockingData || [];
+				blockingData = result.blockingData || [];
+				
 				
 				const memo = prompt(name+'님의 글을 차단 합니다', '차단 사유를 메모하세요.');
 				if (memo === null) {
@@ -106,8 +112,14 @@ const itssaUI = {
 		set: function() {
 			chrome.storage.sync.get(['blockingData','blockingEnabled'], (result) => {
 				console.log('저장된 데이터:', result.blockingData);
-				const blockingData = result.blockingData || [];
+				const blockingData = result.blockingData ;
 				const blockingEnabled = result.blockingEnabled ;
+				console.log(blockingData);
+				if(blockingData === undefined) {
+					chrome.storage.sync.set({ blockingData: [] }, () => {
+						console.log('차단 데이터가 초기화되었습니다.');
+					});
+				}
 				if(blockingEnabled === undefined) {
 					chrome.storage.sync.set({ blockingEnabled: true }, () => {
 						console.log('차단 기능이 활성화되었습니다.');
