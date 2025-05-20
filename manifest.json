@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "잇싸+",
     "description":"잇싸, EastSide, 동편",
-    "version": "0.0.4",
+    "version": "0.0.4.1",
     "content_scripts": [
         {
             "matches": [
